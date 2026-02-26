@@ -1,0 +1,186 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+|--------------------------------------------------------------------------
+| Blue Wing Theme
+|--------------------------------------------------------------------------
+|
+| Primary (blue) and secondary (green) palettes are defined as CSS custom
+| properties so they can be swapped without touching any component markup.
+| Zinc is kept as the neutral scale to match the Flux UI defaults.
+|
+*/
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* --- Primary (Blue) --- */
+    --color-primary-50: var(--bw-primary-50);
+    --color-primary-100: var(--bw-primary-100);
+    --color-primary-200: var(--bw-primary-200);
+    --color-primary-300: var(--bw-primary-300);
+    --color-primary-400: var(--bw-primary-400);
+    --color-primary-500: var(--bw-primary-500);
+    --color-primary-600: var(--bw-primary-600);
+    --color-primary-700: var(--bw-primary-700);
+    --color-primary-800: var(--bw-primary-800);
+    --color-primary-900: var(--bw-primary-900);
+
+    /* --- Secondary (Green) --- */
+    --color-secondary-50: var(--bw-secondary-50);
+    --color-secondary-100: var(--bw-secondary-100);
+    --color-secondary-200: var(--bw-secondary-200);
+    --color-secondary-300: var(--bw-secondary-300);
+    --color-secondary-400: var(--bw-secondary-400);
+    --color-secondary-500: var(--bw-secondary-500);
+    --color-secondary-600: var(--bw-secondary-600);
+    --color-secondary-700: var(--bw-secondary-700);
+    --color-secondary-800: var(--bw-secondary-800);
+    --color-secondary-900: var(--bw-secondary-900);
+    --color-secondary-950: var(--bw-secondary-950);
+
+    /* --- Neutral (Zinc) --- */
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+
+    /* --- Semantic: Danger (Red) --- */
+    --color-danger-50: var(--bw-danger-50);
+    --color-danger-100: var(--bw-danger-100);
+    --color-danger-200: var(--bw-danger-200);
+    --color-danger-300: var(--bw-danger-300);
+    --color-danger-400: var(--bw-danger-400);
+    --color-danger-500: var(--bw-danger-500);
+    --color-danger-600: var(--bw-danger-600);
+    --color-danger-700: var(--bw-danger-700);
+    --color-danger-800: var(--bw-danger-800);
+    --color-danger-900: var(--bw-danger-900);
+
+    /* --- Semantic: Warning (Amber) --- */
+    --color-warning-50: var(--bw-warning-50);
+    --color-warning-100: var(--bw-warning-100);
+    --color-warning-200: var(--bw-warning-200);
+    --color-warning-300: var(--bw-warning-300);
+    --color-warning-400: var(--bw-warning-400);
+    --color-warning-500: var(--bw-warning-500);
+    --color-warning-600: var(--bw-warning-600);
+    --color-warning-700: var(--bw-warning-700);
+    --color-warning-800: var(--bw-warning-800);
+    --color-warning-900: var(--bw-warning-900);
+
+    /* --- Semantic: Success (re-uses secondary green) --- */
+    --color-success-50: var(--bw-secondary-50);
+    --color-success-100: var(--bw-secondary-100);
+    --color-success-200: var(--bw-secondary-200);
+    --color-success-300: var(--bw-secondary-300);
+    --color-success-400: var(--bw-secondary-400);
+    --color-success-500: var(--bw-secondary-500);
+    --color-success-600: var(--bw-secondary-600);
+    --color-success-700: var(--bw-secondary-700);
+    --color-success-800: var(--bw-secondary-800);
+    --color-success-900: var(--bw-secondary-900);
+
+    /* --- Accent (used by Flux UI) --- */
+    --color-accent: var(--bw-primary-600);
+    --color-accent-content: var(--bw-primary-600);
+    --color-accent-foreground: #ffffff;
+}
+
+:root {
+    /* Primary (Blue) */
+    --bw-primary-50: #f2f9ff;
+    --bw-primary-100: #e6f3ff;
+    --bw-primary-200: #bfe1ff;
+    --bw-primary-300: #99ceff;
+    --bw-primary-400: #4daaff;
+    --bw-primary-500: #0085ff;
+    --bw-primary-600: #0078e6;
+    --bw-primary-700: #0064bf;
+    --bw-primary-800: #005099;
+    --bw-primary-900: #00417d;
+
+    /* Secondary (Green) */
+    --bw-secondary-50: #F0FCF8;
+    --bw-secondary-100: #DFF7EF;
+    --bw-secondary-200: #B2EDD5;
+    --bw-secondary-300: #87E0B8;
+    --bw-secondary-400: #3CC97E;
+    --bw-secondary-500: #00b341;
+    --bw-secondary-600: #00A138;
+    --bw-secondary-700: #00852A;
+    --bw-secondary-800: #006B20;
+    --bw-secondary-900: #004F15;
+    --bw-secondary-950: #00330C;
+
+    /* Danger (Red) */
+    --bw-danger-50: #fef2f2;
+    --bw-danger-100: #fee2e2;
+    --bw-danger-200: #fecaca;
+    --bw-danger-300: #fca5a5;
+    --bw-danger-400: #f87171;
+    --bw-danger-500: #ef4444;
+    --bw-danger-600: #dc2626;
+    --bw-danger-700: #b91c1c;
+    --bw-danger-800: #991b1b;
+    --bw-danger-900: #7f1d1d;
+
+    /* Warning (Amber) */
+    --bw-warning-50: #fffbeb;
+    --bw-warning-100: #fef3c7;
+    --bw-warning-200: #fde68a;
+    --bw-warning-300: #fcd34d;
+    --bw-warning-400: #fbbf24;
+    --bw-warning-500: #f59e0b;
+    --bw-warning-600: #d97706;
+    --bw-warning-700: #b45309;
+    --bw-warning-800: #92400e;
+    --bw-warning-900: #78350f;
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--bw-primary-400);
+        --color-accent-content: var(--bw-primary-400);
+        --color-accent-foreground: var(--color-zinc-900);
+    }
+}
+
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
