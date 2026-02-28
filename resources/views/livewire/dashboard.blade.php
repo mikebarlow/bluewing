@@ -88,6 +88,10 @@
                             <flux:button size="sm" wire:click="cancelPost({{ $post->id }})" wire:confirm="{{ __('Cancel this post?') }}">
                                 {{ __('Cancel') }}
                             </flux:button>
+                        @elseif (in_array($post->status, [\App\Enums\PostStatus::Queued, \App\Enums\PostStatus::Publishing, \App\Enums\PostStatus::Sent, \App\Enums\PostStatus::Failed]))
+                            <flux:button size="sm" variant="subtle" :href="route('posts.edit', $post)" wire:navigate>
+                                {{ __('View') }}
+                            </flux:button>
                         @endif
                         @if ($post->user_id === auth()->id())
                             <flux:button size="sm" variant="danger" wire:click="deletePost({{ $post->id }})" wire:confirm="{{ __('Delete this post permanently?') }}">
