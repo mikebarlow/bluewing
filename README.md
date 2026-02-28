@@ -57,7 +57,7 @@ The `.env.example` file ships with sensible defaults. Key variables to review:
 | `X_UPLOAD_BASE_URL` | X media upload base URL (v2 supports OAuth 2.0) | `https://upload.x.com/2` |
 | `BLUEWING_MEDIA_DISK` | Filesystem disk for media storage | `public` |
 
-`X_CLIENT_ID` and `X_CLIENT_SECRET` are required to connect X accounts. Get them from the [X Developer Portal](https://developer.x.com/en/portal/dashboard). Bluesky credentials are entered per-account and do not require app-level env vars. All per-account tokens are encrypted at rest via Laravel's `encrypted` cast.
+`X_CLIENT_ID` and `X_CLIENT_SECRET` are required to connect X accounts. Get them from the [X Developer Portal](https://developer.x.com/en/portal/dashboard). Media uploads use the v2 upload endpoint (`upload.x.com/2`) which supports OAuth 2.0; if you see a 403 on media upload, check your app's access level in the portal (e.g. Elevated or Basic may be required for media). Bluesky credentials are entered per-account and do not require app-level env vars. All per-account tokens are encrypted at rest via Laravel's `encrypted` cast.
 
 ## Running Locally
 
